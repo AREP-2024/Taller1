@@ -52,6 +52,15 @@ http://localhost:35000/
  
 ![](imagenes/Pantalla.png)
 
+### Test
+
+Se ejecuta el siguiente comando:
+ ```
+ mvn test
+  ```
+
+se ejecuta el comando 
+
 ### Construido con
 
 * [Maven](https://maven.apache.org/): Maven es un herramienta que proporciona una estructura estándar, gestión de dependencias y automatización de tareas en los proyectos software desarrollados en Java.
