@@ -89,6 +89,10 @@ public class HttpServer {
         serverSocket.close();
     }
 
+    /*
+        * Metodo que muetra la pagina principal
+        * @return String con la pagina principal
+     */
     public static String mostrarPagina( ) throws IOException{
 
         StringBuilder pagina = new StringBuilder();
@@ -110,7 +114,13 @@ public class HttpServer {
     
 
     }
-
+    
+    /*
+        * Metodo que muetra la informacion de una pelicula
+        * @param httpConnection conexion con la api
+        * @param nameMovie nombre de la pelicula
+        * @return String con la informacion de la pelicula
+     */
     public static String mostrarPelicula(HttpConnection httpConnection, String nameMovie) throws IOException{
         StringBuilder pagina = new StringBuilder();
 

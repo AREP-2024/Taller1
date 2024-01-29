@@ -8,12 +8,13 @@ import java.net.URL;
 import java.security.Key;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 
 public class HttpConnection {
     private static final String USER_AGENT = "Mozilla/5.0";
     private final String url;
     private final String key;
-    private static final Map<String, String> cache = new HashMap<>();
+    private static final Map<String, String> cache = new ConcurrentHashMap<>();
 
     public HttpConnection(String url, String key) {
         this.url = url;
@@ -27,7 +28,11 @@ public class HttpConnection {
     public String getKey(){
         return key;
     }
-
+    /* 
+        * Trae la informacion de la pelicula
+        * @param nameMovie nombre de la pelicula que se desea consultar
+        * @return String con la informacion de la pelicula    
+     */     
     public String infoMovie(String nameMovie) throws IOException {
 
         URL obj = new URL(url+"?apikey="+key+"&t="+nameMovie);
@@ -61,6 +66,11 @@ public class HttpConnection {
         return null;
     }
 
+    /*
+        * Trae la informacion de la pelicula con cache
+        * @param nameMovie nombre de la pelicula que se desea consultar
+        * @return String con la informacion de la pelicula
+    */
     public String infoMovieWithCache(String nameMovie) throws IOException {
         // Check if the movie information is already in the cache
         if (cache.containsKey(nameMovie)) {
